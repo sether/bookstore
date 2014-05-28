@@ -8,11 +8,16 @@ public class CustomerList {
 	public static void main(String args[]) throws ClassNotFoundException {
 		Connection conn;
 		Statement statement;
-		String url = "jdbc:mysql://localhost:3306/bookstore";
+
+		//String url = "jdbc:mysql://localhost:3306/bookstore";
+		String url = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/";
 	
 		try {
 			//Class.forName("com.mysql.jdbc.Driver"); // Load MySQL driver
-			conn = DriverManager.getConnection (url, "root", "");
+
+			//conn = DriverManager.getConnection (url, "root", "");
+			conn = DriverManager.getConnection (url, "admingPE6WLK", "raCfHeIPbWii");
+
 			statement = conn.createStatement();
 
 			// List the customers
