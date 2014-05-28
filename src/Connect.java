@@ -7,12 +7,17 @@ public class Connect {
 	static Connection conn;
 
 	static Connection openDatabase(String url) {
-		String urlBooks = "jdbc:mysql://localhost:3306/bookstore";
+	
+	
+	
+	//	String urlBooks = "jdbc:mysql://localhost:3306/bookstore";
+		String urlBooks = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/";
 
 
 		try {
 			//Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-			conn = DriverManager.getConnection (urlBooks, "root", "");
+			//conn = DriverManager.getConnection (bookstore, "root", "");
+			conn = DriverManager.getConnection (jbossews, "admingPE6WLK", "raCfHeIPbWii");
 		}
 		catch(Exception ex) {
 			System.err.println(ex.getMessage());
